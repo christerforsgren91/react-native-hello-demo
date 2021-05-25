@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FirstScreen from './screens/FirstScreen';
-import SecoundScreen from './screens/SecoundScreens'
+import SecoundScreen from './screens/SecoundScreens';
 
 const Stack = createStackNavigator();
 
@@ -31,12 +31,12 @@ const App = () => {
             ),
           })}
         />
-        <Stack.Screen 
-        name='Secound Screen' 
-        component={SecoundScreen} 
-        options={() => ({
-          headerBackTitle: 'Take me back'
-        })}
+        <Stack.Screen
+          name="Secound Screen"
+          component={SecoundScreen}
+          options={() => ({
+            headerBackTitle: 'Take me back',
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>

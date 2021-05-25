@@ -1,14 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, View , Button} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, View, FlatList } from 'react-native';
+import axios from 'axios';
+import Article from './Article';
 
 const FirstScreen = ({ navigation }) => {
+  const [articles, setArticles] = useState([]);
+
+  const fetchArticles = async () => {
+    const response = await axios.get(
+      'https://fakest-newzz.herokuapp.com/api/articles'
+    );
+    setArticles(response.data.articles);
+  };
+
+  useEffect(() => {
+    fetchArticles();
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.header}
-      >Hello First Screen</Text>
-      <Button 
-      title='Press Me' 
-      onPress={() => navigation.navigate('Secound Screen', {name: 'Lappjävel'})}
+      <FlatList
+        data={articles}
+        renderItem={({ item }) => {
+          return <Article article={item} navigation={navigation} />;
+        }}
       />
     </View>
   );
