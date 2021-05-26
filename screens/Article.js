@@ -10,14 +10,14 @@ import {
 
 const Article = ({ article, navigation }) => {
   return (
-    <TouchableOpacity
+    <TouchableOpacity testID={`article-${article.id}`}
       onPress={() => {
         navigation.navigate('Secound Screen', { article: article });
       }}
     >
       <Image source={{ uri: article.image }} style={styles.image} />
       <View style={styles.card}>
-        <Text style={styles.title}>{article.title}</Text>
+        <Text testID="title" style={styles.title}>{article.title}</Text>
       </View>
     </TouchableOpacity>
   );
