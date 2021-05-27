@@ -4,14 +4,18 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FirstScreen from './screens/FirstScreen';
 import SecoundScreen from './screens/SecoundScreens';
+import Authentication from './screens/Authentication';
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  const name = 'MyApplication';
+  const name = 'My Application';
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen 
+        name="Authentication" 
+        component={Authentication} />
         <Stack.Screen
           name={name}
           component={FirstScreen}
