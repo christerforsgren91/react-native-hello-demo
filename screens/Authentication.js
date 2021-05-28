@@ -11,8 +11,7 @@ const Authentication = ({ navigation }) => {
   const authenticateUser = async () => {
     const response = await auth.signIn(email, password);
     navigation.navigate('My Application');
-    setMessage(
-      `Welcome ${response.data.first_name} ${response.data.last_name}`
+    setMessage(`Welcome ${response.data.first_name} ${response.data.last_name}`
     );
   };
 
